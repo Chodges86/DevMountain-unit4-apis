@@ -1,0 +1,52 @@
+Part 2: Social Mountain
+
+1. Check if the POST request accept params, queries, and/or a body. Which one(s) and what information is it expecting to be sent?
+
+It accepts a body that contains a JSON object: 
+{
+    "text": "Your text here"
+}
+
+2. What data type does the GET request return?
+
+Returns an array of all the posts
+
+3. What would the URL look like for deleting the post with the id 555? (This post does not exist anymore, but the syntax is the same for existing posts, )
+
+DELETE:  https://practiceapi.devmountain.com/api/posts?id=1457
+
+4. List the possible response codes from the GET request at ‘/posts/filter’
+
+200 - Returns an array of filtered posts
+409 - Request query is missing required text property
+
+5. Create a post whose text is your name, record the URL and body here:
+
+{
+    "text": "Caleb"
+}
+
+6. What would the URL and body object be to update the post you just made to contain your faovrite color instead of your name?
+
+https://practiceapi.devmountain.com/api/posts/?id=1461
+{
+    "text": "blue"
+}
+
+7. What is the URL to get posts that contain the text “blue”?
+
+https://practiceapi.devmountain.com/api/posts/filter?text=blue
+
+8. Make a request to GET all the posts. What are the content type and charset of the response? (Hint: look on the Headers)
+
+application/json; charset=utf-8
+
+9. What would cause a PUT request to return a 409 status?
+
+Request was missing req.query.id or req.body.text
+
+10. What happens if you try to send a query in the GET request URL? Why do you get that response?
+
+It ignores the query and returns all the posts.
+
+The endpoint in the server is not setup to return results based on params only to return the entire database of posts
